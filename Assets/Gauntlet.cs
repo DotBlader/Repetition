@@ -6,11 +6,11 @@ public class Gauntlet : MonoBehaviour
 {
     public GameObject Normal;
     public GameObject Snap;
-    public Transform White;
+    
 
 
     public float timer;
-    private bool PosBottom;
+    public bool PosBottom;
     // Use this for initialization
     void Start()
     {
@@ -27,22 +27,24 @@ public class Gauntlet : MonoBehaviour
         timer -= Time.deltaTime;
 
     }
+    private void OnMouseEnter()
+    {
+        Debug.Log("Make Thanos snap his fingers!");
+    }
     private void OnMouseDown()
     {
-        timer = 10.05f;
-        if (timer <= 10f && timer >= 5f && PosBottom == true)
+        
+        if (PosBottom == true)
         {
-            White.transform.Translate(0f, 100f, 0, Space.World);
             PosBottom = false;
         }
-        if (timer <= 10f && timer >= 5f && PosBottom == false)
+        if (PosBottom == false)
         {
-            White.transform.Translate(0f, -100f, 0, Space.World);
             PosBottom = true;
         }
-            Debug.Log("Thanos snaps his fingers and half of all life is killed!");
-            Normal.SetActive(false);
-            Snap.SetActive(true);
+        Normal.SetActive(false);
+        Snap.SetActive(true);
+        Debug.Log("Thanos snaps his fingers and half of all life is killed!");
 
     }
     private void OnMouseExit()
