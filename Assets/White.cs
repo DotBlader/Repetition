@@ -15,13 +15,11 @@ public class White : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GauntLet.PosBottom == true)
-        {
+        
             transform.localPosition = new Vector3(0.08f, -11.3f, 0f);
-        }
-        else
-        {
+        
+        
             transform.localPosition = new Vector3(0.08f, 11.72f, 0f);
-        }
+        
     }
 }
